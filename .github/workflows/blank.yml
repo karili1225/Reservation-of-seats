@@ -11,8 +11,8 @@ on:
   #  branches: [ main ]
   watch:
     types: started
-  #schedule:
-  #  - cron: 00 22 * * *
+  schedule:
+    - cron: 55 21 * * *
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -54,8 +54,6 @@ jobs:
           date -R
           cd $GITHUB_WORKSPACE
           java -jar yuyue.jar
-          chmod +x main
-          ./main
           echo "::set-end name=status::success"
           
       - name: upload img
@@ -73,7 +71,7 @@ jobs:
           password: ${{ secrets.MAILPASSWORD }}
           subject: gh Actions job result
           body: possible failed!
-          to: 2506923314@qq.com
+          to: ity4441295@163.com
           from: ghActions
           content_type: text/html
           attachments: ./img/jt1.jpg
